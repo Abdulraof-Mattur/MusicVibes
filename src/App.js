@@ -6,52 +6,43 @@ import Home from "./pages/home/Home";
 import "./style.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
-import Post from "./components/post/Post";
-import Share from "./components/share/Share";
 
 function App() {
-  // const { darkMode } = useContext(DarkModeContext);
+  const { darkMode } = useContext(DarkModeContext);
+
+  const Layout = () => {
+    return (
+      <div className={`theme-${darkMode ? "dark" : "light"}`}>
+        <Navbar />
+        <div style={{ display: "flex" }}>
+          <LeftBar />
+          <div style={{ flex: 6 }}>
+            <Outlet />
+          </div>
+          <RightBar />
+        </div>
+      </div>
+    );
+  };
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+      ],
+    },
+  ]);
+
   return (
-    <>
-      <Share />
-      <Post />
-    </>
+    <div>
+      <RouterProvider router={router} />
+    </div>
   );
-  // const Layout = () => {
-  // return (
-  //   // <div className={`theme-${darkMode ? "dark" : "light"}`}>
-  //   {
-  //     /* <Navbar />
-  //       <div style={{ display: "flex" }}>
-  //         <LeftBar />
-  //         <div style={{ flex: 6 }}>
-  //           <Outlet />
-  //         </div>
-  //         <RightBar />
-  //       </div> */
-  //   }
-  //   // </div>
-  // );
-  // };
-
-  // const router = createBrowserRouter([
-  //   {
-  //     path: "/",
-  //     element: <Layout />,
-  //     children: [
-  //       {
-  //         path: "/",
-  //         element: <Home />,
-  //       },
-  //     ],
-  //   },
-  // ]);
-
-  // return (
-  //   <div>
-  //     <RouterProvider router={router} />
-  //   </div>
-  // );
 }
 
 export default App;

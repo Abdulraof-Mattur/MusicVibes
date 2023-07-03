@@ -1,12 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Comments from "../comments/Comments";
 import "./post.scss";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
-import TextsmsOutlinedIcon from "@mui/icons-material/TextsmsOutlined";
-import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { Padding } from "@mui/icons-material";
 
 const Post = () => {
   const [posts, setPosts] = useState([]);
@@ -34,17 +29,15 @@ const Post = () => {
       });
   }
 
-  const liked = false;
-
   return (
     <>
       {posts.map((post) => (
         <div key={post.id}>
-          <p>{post.text}</p>
-          <span>{post.PostDate}</span>
+          <p style={{ color: "#6855E0" }}>{post.text}</p>
+          <span style={{ color: "#6855E0" }}>{post.PostDate}</span>
           <div>
             {post.comment.map((comment) => {
-              return <p>{comment}</p>;
+              return <p style={{ color: "#6855E0" }}>{comment}</p>;
             })}
           </div>
           <div>
