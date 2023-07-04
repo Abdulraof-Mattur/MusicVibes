@@ -18,7 +18,10 @@ $themes: (
 );
 
 @mixin themify($themes) {
+  //بتخزن فيها قيمه معينه بستدعيها بأي مكان و بعتبرها زي الرووت
+  //Mixins allow you to define styles that can be re-used throughout your stylesheet.
   @each $theme, $map in $themes {
+    //LOOP
     .theme-#{$theme} & {
       $theme-map: () !global;
       @each $key, $submap in $map {

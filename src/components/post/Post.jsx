@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./post.scss";
-import { Padding } from "@mui/icons-material";
+
+//قيمه بصير عليها تغيير بشكل مستمر بتخليني اعمل تغيير عالقيمه
+
+// AXIOS مكتبه بقدر اقرأعن طريقها من ال API
 
 const Post = () => {
   const [posts, setPosts] = useState([]);
   const [comment, setComment] = useState("");
-  const [postToComment, setPostToComment] = useState([]);
-  const [commentOpen, setCommentOpen] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+  const [newEdit, setnewEdit] = useState();
 
   useEffect(() => {
     fetch("http://localhost:9000/post")
@@ -19,21 +22,41 @@ const Post = () => {
     fetch(`http://localhost:9000/post/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        setPostToComment(data.comment);
         const updatedComments = [...data.comment, comment];
-        setPostToComment(updatedComments);
         axios.put(`http://localhost:9000/post/${id}`, {
           ...posts.find((post) => post.id === id),
           comment: updatedComments,
         });
-      });
+      }); //
   }
-
+  const handelDelete = (id) => {
+    axios.delete(`http://localhost:9000/post/${id}`);
+  };
+  const handelUpdate = (id, NewPost) => {
+    axios.put(`http://localhost:9000/post/${id}`, {
+      ...posts.find((post) => post.id === id),
+      text: NewPost,
+    });
+    setIsEdit(false);
+  };
   return (
     <>
       {posts.map((post) => (
         <div key={post.id}>
-          <p style={{ color: "#6855E0" }}>{post.text}</p>
+          {!isEdit ? (
+            <>
+              <p style={{ color: "#6855E0" }}>{post.text}</p>
+              <button onClick={() => handelDelete(post.id)}>Delete</button>
+              <button onClick={() => setIsEdit(true)}>Edit</button>
+            </>
+          ) : (
+            <>
+              <input onChange={(e) => setnewEdit(e.target.value)} />
+              <button onClick={() => handelUpdate(post.id, newEdit)}>
+                Edit
+              </button>
+            </>
+          )}
           <span style={{ color: "#6855E0" }}>{post.PostDate}</span>
           <div>
             {post.comment.map((comment) => {
