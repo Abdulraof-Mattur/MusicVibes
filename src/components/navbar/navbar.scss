@@ -79,3 +79,12 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .theme-light .navbar {
+    justify-content: center;
+  }
+  .logo_img {
+    display: none;
+  }
+}

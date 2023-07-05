@@ -14,7 +14,7 @@ function App() {
     return (
       <div className={`theme-${darkMode ? "dark" : "light"}`}>
         <Navbar />
-        <div style={{ display: "flex" }}>
+        <div className="LeftBar_query" style={{ display: "flex" }}>
           <LeftBar />
           <div style={{ flex: 6 }}>
             <Outlet />

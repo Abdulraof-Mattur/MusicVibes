@@ -10,7 +10,6 @@ function Share() {
     "https://lh3.googleusercontent.com/a/AAcHTtefq0kzEb6ZGcOzyWzDinKC9ZoP2ppqVue3im2b8agC2a8=s360-c-no";
 
   const [postText, setPostText] = useState("");
-
   const handleShare = () => {
     // Perform the share functionality with the post text
     addPost();

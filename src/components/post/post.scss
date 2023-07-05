@@ -1,77 +1,130 @@
-@import "../../style.scss";
+// @import "../../style.scss";
 
-.post {
-  @include themify($themes) {
-    // حيجيب المكسن اللي انا عامله
-    -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
-    -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
-    box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
-    border-radius: 20px;
-    background-color: themed("bg");
-    color: themed("textColor");
+// .post {
+//   @include themify($themes) {
+//     // the @include directive is used to include and invoke mixins and functions defined in your code.
+//     // حيجيب المكسن اللي انا عامله
+//     -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+//     -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+//     box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+//     border-radius: 20px;
+//     background-color: themed("bg");
+//     color: themed("textColor");
 
-    .container {
-      padding: 20px;
+//     .container {
+//       padding: 20px;
 
-      button {
-        padding-left: 100px;
-      }
+//       button {
+//         padding-left: 100px;
+//       }
 
-      .user {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+//       .user {
+//         display: flex;
+//         align-items: center;
+//         justify-content: space-between;
 
-        .userInfo {
-          display: flex;
-          gap: 20px;
+//         .userInfo {
+//           display: flex;
+//           gap: 20px;
 
-          img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-          }
+//           img {
+//             width: 40px;
+//             height: 40px;
+//             border-radius: 50%;
+//             object-fit: cover;
+//           }
 
-          .details {
-            display: flex;
-            flex-direction: column;
+//           .details {
+//             display: flex;
+//             flex-direction: column;
 
-            .name {
-              font-weight: 500;
-            }
+//             .name {
+//               font-weight: 500;
+//             }
 
-            .date {
-              font-size: 12px;
-            }
-          }
-        }
-      }
+//             .date {
+//               font-size: 12px;
+//             }
+//           }
+//         }
+//       }
 
-      .content {
-        margin: 20px 0px;
+//       .content {
+//         margin: 20px 0px;
 
-        img {
-          width: 100%;
-          max-height: 500px;
-          object-fit: cover;
-          margin-top: 20px;
-        }
-      }
+//         img {
+//           width: 100%;
+//           max-height: 500px;
+//           object-fit: cover;
+//           margin-top: 20px;
+//         }
+//       }
 
-      .info {
-        display: flex;
-        align-items: center;
-        gap: 20px;
+//       .info {
+//         display: flex;
+//         align-items: center;
+//         gap: 20px;
 
-        .item {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          cursor: pointer;
-          font-size: 14px;
-        }
-      }
+//         .item {
+//           display: flex;
+//           align-items: center;
+//           gap: 10px;
+//           cursor: pointer;
+//           font-size: 14px;
+//         }
+//       }
+//     }
+//   }
+// }
+.content_post {
+  background-color: #222222;
+  padding: 20px 30px 20px 20px;
+  border-radius: 16px;
+}
+
+.posts {
+  .time_post {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .delete_edit {
+    display: flex;
+    justify-content: end;
+    button {
+      padding: 5px;
+      border-radius: 8px;
+      background-color: #5648b1;
+      color: white;
+      border: none;
+      font-weight: 500;
+      width: 70px;
     }
+    button:nth-child(1) {
+      margin-right: 10px;
+      background-color: rgb(255, 99, 99);
+    }
+    button:nth-child(2) {
+      background-color: rgb(0, 107, 0);
+    }
+  }
+  .save_comment button {
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: #5648b1;
+    color: white;
+    font-weight: 500;
+  }
+  input {
+    width: 98%;
+    border: none;
+    padding-left: 10px;
+    color: white;
+    outline: none;
+    height: 30px;
+    margin: 10px 0 10px 0;
+    border-radius: 8px;
+    background-color: rgb(67, 67, 67);
   }
 }

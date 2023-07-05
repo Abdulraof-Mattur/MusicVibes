@@ -14,3 +14,12 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .home {
+    width: 100% !important;
+  }
+  .theme-light .home {
+    padding: 10px;
+  }
+}

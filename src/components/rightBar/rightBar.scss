@@ -77,7 +77,8 @@
           .buttons {
             display: flex;
             align-items: center;
-            gap: 3px;
+            // gap: 1px;
+            // flex-wrap: wrap;
 
             button {
               cursor: pointer;

@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="left">
-        <a href="#" style={{ textDecoration: "none" }}>
+        <a href="#" className="logo_img" style={{ textDecoration: "none" }}>
           <span>
             <span style={{ color: "rgba(104, 85, 224, 1)" }}>Music</span>Vibes
             <span style={{ color: "rgba(104, 85, 224, 1)" }}>🎶</span>

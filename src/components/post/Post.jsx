@@ -2,20 +2,21 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./post.scss";
 
-//قيمه بصير عليها تغيير بشكل مستمر بتخليني اعمل تغيير عالقيمه
-
-// AXIOS مكتبه بقدر اقرأعن طريقها من ال API
+//effect  include fetching data, subscribing to events, manipulating the DOM
 
 const Post = () => {
   const [posts, setPosts] = useState([]);
   const [comment, setComment] = useState("");
   const [isEdit, setIsEdit] = useState(false);
   const [newEdit, setnewEdit] = useState();
-
-  useEffect(() => {
+  function getData() {
     fetch("http://localhost:9000/post")
       .then((response) => response.json())
       .then((data) => setPosts(data));
+  }
+  useEffect(() => {
+    console.log("aaaaa");
+    getData();
   }, []);
 
   function handleComment(id) {
@@ -42,12 +43,17 @@ const Post = () => {
   return (
     <>
       {posts.map((post) => (
-        <div key={post.id}>
+        <div className="content_post" key={post.id}>
           {!isEdit ? (
             <>
-              <p style={{ color: "#6855E0" }}>{post.text}</p>
-              <button onClick={() => handelDelete(post.id)}>Delete</button>
-              <button onClick={() => setIsEdit(true)}>Edit</button>
+              <div className="time_post">
+                <p style={{ color: "#6855E0" }}>{post.text}</p>{" "}
+                <span style={{ color: "#6855E0" }}>{post.PostDate}</span>
+              </div>
+              <div className="delete_edit">
+                <button onClick={() => handelDelete(post.id)}>Delete</button>
+                <button onClick={() => setIsEdit(true)}>Edit</button>
+              </div>
             </>
           ) : (
             <>
@@ -57,20 +63,17 @@ const Post = () => {
               </button>
             </>
           )}
-          <span style={{ color: "#6855E0" }}>{post.PostDate}</span>
           <div>
             {post.comment.map((comment) => {
               return <p style={{ color: "#6855E0" }}>{comment}</p>;
             })}
           </div>
-          <div>
+          <div className="save_comment">
             <input type="text" onChange={(e) => setComment(e.target.value)} />
             <button onClick={() => handleComment(post.id)}>add comment</button>
           </div>
         </div>
       ))}
-
-      {/* Rest of the code for rendering the post */}
     </>
   );
 };

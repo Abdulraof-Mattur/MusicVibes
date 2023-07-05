@@ -94,3 +94,12 @@
     }
   }
 }
+@media screen and (max-width: 480px) {
+  .share {
+    width: 90vw;
+    margin: auto;
+  }
+  .theme-light .share .container .bottom .left {
+    display: block;
+  }
+}
