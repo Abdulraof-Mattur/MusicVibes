@@ -60,3 +60,69 @@ body {
     display: block !important;
   }
 }
+button {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 280px) {
+  .home {
+    width: 116vw;
+    height: 127vh;
+  }
+  .theme-dark .navbar {
+    width: 116vw;
+  }
+
+  .theme-dark .share .container .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    row-gap: 30px;
+  }
+
+  .posts .delete_edit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .content_post {
+    display: grid;
+    row-gap: 20px;
+  }
+
+  .posts .save_comment {
+    display: grid;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .theme-dark .share .container .bottom {
+    display: grid;
+    justify-items: center;
+    row-gap: 21px;
+  }
+  .posts .save_comment {
+    display: grid;
+  }
+}
+@media screen and (max-width: 412px) {
+  .theme-dark .home {
+    width: 91vw;
+  }
+  .theme-dark .navbar {
+    width: 91vw;
+  }
+
+  .theme-dark .share .container .bottom {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    row-gap: 30px;
+  }
+  .posts .save_comment {
+    display: grid;
+  }
+}

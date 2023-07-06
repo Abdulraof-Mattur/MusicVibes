@@ -1,81 +1,3 @@
-// @import "../../style.scss";
-
-// .post {
-//   @include themify($themes) {
-//     // the @include directive is used to include and invoke mixins and functions defined in your code.
-//     // حيجيب المكسن اللي انا عامله
-//     -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
-//     -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
-//     box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
-//     border-radius: 20px;
-//     background-color: themed("bg");
-//     color: themed("textColor");
-
-//     .container {
-//       padding: 20px;
-
-//       button {
-//         padding-left: 100px;
-//       }
-
-//       .user {
-//         display: flex;
-//         align-items: center;
-//         justify-content: space-between;
-
-//         .userInfo {
-//           display: flex;
-//           gap: 20px;
-
-//           img {
-//             width: 40px;
-//             height: 40px;
-//             border-radius: 50%;
-//             object-fit: cover;
-//           }
-
-//           .details {
-//             display: flex;
-//             flex-direction: column;
-
-//             .name {
-//               font-weight: 500;
-//             }
-
-//             .date {
-//               font-size: 12px;
-//             }
-//           }
-//         }
-//       }
-
-//       .content {
-//         margin: 20px 0px;
-
-//         img {
-//           width: 100%;
-//           max-height: 500px;
-//           object-fit: cover;
-//           margin-top: 20px;
-//         }
-//       }
-
-//       .info {
-//         display: flex;
-//         align-items: center;
-//         gap: 20px;
-
-//         .item {
-//           display: flex;
-//           align-items: center;
-//           gap: 10px;
-//           cursor: pointer;
-//           font-size: 14px;
-//         }
-//       }
-//     }
-//   }
-// }
 .content_post {
   background-color: #222222;
   padding: 20px 30px 20px 20px;
@@ -102,19 +24,35 @@
     }
     button:nth-child(1) {
       margin-right: 10px;
-      background-color: rgb(255, 99, 99);
+      background-color: #a72e2e;
+      border: 1px solid;
+      border-radius: 15px;
+    }
+    button:nth-child(1):hover {
+      box-shadow: 0 0 20px rgb(239, 78, 78);
+      background-color: red;
     }
     button:nth-child(2) {
-      background-color: rgb(0, 107, 0);
+      background-color: #5648b1;
+      border: 1px solid;
+      border-radius: 15px;
+    }
+    button:nth-child(2):hover {
+      box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+      background-color: rgba(104, 85, 224, 1);
     }
   }
   .save_comment button {
     padding: 5px;
-    border: none;
-    border-radius: 8px;
+    border: 1px solid whitesmoke;
+    border-radius: 15px;
     background-color: #5648b1;
     color: white;
     font-weight: 500;
+  }
+  .save_comment button:hover {
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+    background-color: rgba(104, 85, 224, 1);
   }
   input {
     width: 98%;

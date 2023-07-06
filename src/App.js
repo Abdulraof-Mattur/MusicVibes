@@ -32,15 +32,15 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Home />,
-        },
-      ],
-    },
+          element: <Home />
+        }
+      ]
+    }
   ]);
 
   return (
     <div>
-      <RouterProvider router={router} />
+        <RouterProvider router={router} />
     </div>
   );
 }

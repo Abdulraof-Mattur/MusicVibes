@@ -1,28 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./share.scss";
 import Image from "../../assets/img.png";
 import Map from "../../assets/map.png";
 import Friend from "../../assets/friend.png";
 import axios from "axios";
-
+import { funContext } from "../../context/FunContextProvider";
 function Share() {
+  const { addPost } = useContext(funContext);
+
   const userImage =
     "https://lh3.googleusercontent.com/a/AAcHTtefq0kzEb6ZGcOzyWzDinKC9ZoP2ppqVue3im2b8agC2a8=s360-c-no";
 
   const [postText, setPostText] = useState("");
-  const handleShare = () => {
+  const handleShare = (postText) => {
     // Perform the share functionality with the post text
-    addPost();
+    addPost(postText);
     console.log("Post shared:", postText);
 
     // Reset the input field
-  };
-  const addPost = () => {
-    axios.post("http://localhost:9000/post", {
-      text: postText,
-      comment: [],
-      PostDate: new Date().toLocaleDateString(),
-    });
   };
 
   return (
@@ -57,7 +52,7 @@ function Share() {
             </div>
           </div>
           <div className="right">
-            <button className="log" onClick={handleShare}>
+            <button className="log" onClick={() => handleShare(postText)}>
               Share
             </button>
           </div>
