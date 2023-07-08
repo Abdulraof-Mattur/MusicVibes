@@ -26,6 +26,7 @@ const Post = () => {
     }));
   };
 
+  //set save edit modes
   const setEditMode = (id, mode) => {
     setEditModes((prevModes) => ({
       ...prevModes,

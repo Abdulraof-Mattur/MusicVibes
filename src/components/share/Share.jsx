@@ -3,7 +3,7 @@ import "./share.scss";
 import Image from "../../assets/img.png";
 import Map from "../../assets/map.png";
 import Friend from "../../assets/friend.png";
-import axios from "axios";
+// import axios from "axios";
 import { funContext } from "../../context/FunContextProvider";
 function Share() {
   const { addPost } = useContext(funContext);
@@ -16,8 +16,6 @@ function Share() {
     // Perform the share functionality with the post text
     addPost(postText);
     console.log("Post shared:", postText);
-
-    // Reset the input field
   };
 
   return (
